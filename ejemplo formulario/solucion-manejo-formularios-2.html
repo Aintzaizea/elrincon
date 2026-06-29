@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                --color-text-primary: #333;
+                --color-text-secondary: #fff;
+                --color-bg-primary: rgb(20, 20, 20);
+                --color-error: rgb(195, 12, 12);
+                --color-exito: rgb(0, 162, 0);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                min-height: 100vh;
+                font-family: 'Inter', sans-serif;
+                color: var(--color-text-primary);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .containerFormContacto {
+                max-width: 500px;
+                width: 100%;
+                padding: 30px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            h2 {
+                text-align: center;
+            }
+
+            .error-message {
+                color: var(--color-error);
+                font-size: 14px;
+                display: block;
+                min-height: 30px;
+                /* Oculto pero siempre ocupa espacio */
+                visibility: hidden;
+                transition: visibility 0.3s;
+            }
+
+            .error-message::before {
+                content: '☠️';
+            }
+
+            .error-message.visible {
+                visibility: visible;
+            }
+
+            .mensaje-exito {
+                position: fixed;
+                top: 20px;
+                left:50%;
+                z-index: 999;
+                min-width: 240px;
+                background: var(--color-exito);
+                color: var(--color-text-secondary);
+                padding: 12px;
+                border-radius: 8px;
+                text-align: center;
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-12px) translateX(-50%);
+                pointer-events: none;
+                transition:
+                    opacity 0.25s ease,
+                    transform 0.25s ease,
+                    visibility 0s linear 0.25s;
+            }
+
+            .mensaje-exito.visible {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(30px) translateX(-50%);
+                transition-delay: 0s;
+            }
+
+            .campo label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .campo input,
+            .campo textarea {
+                width: 100%;
+                padding: 10px 12px;
+                border: 2px solid #ddd;
+                border-radius: 8px;
+                transition: border-color 0.3s;
+                font-family: inherit;
+                font-size: inherit;
+                color: inherit;
+            }
+
+            .campo input.error {
+                border-color: var(--color-error);
+            }
+
+            .campo textarea {
+                min-height: 100px;
+                resize: vertical;
+            }
+
+            .campo input:focus,
+            .campo textarea:focus {
+                outline: none;
+                border-color: var(--color-principal);
+            }
+
+            button {
+                background: var(--color-bg-primary);
+                color: var(--color-text-secondary);
+                font-family: inherit;
+                border: none;
+                padding: 12px;
+                border-radius: 8px;
+                font-size: inherit;
+                cursor: pointer;
+                width: 100%;
+                transition:
+                    background 0.3s,
+                    opacity 0.3s;
+                margin-top: 25px;
+            }
+
+            button:hover {
+                opacity: 0.7;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="containerFormContacto">
+            <h2>Contacto</h2>
+            <form id="formContacto" novalidate>
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Tu nombre"
+                        required
+                    />
+                    <span class="error-message" id="error-nombre"
+                        >El nombre es obligatorio</span
+                    >
+                </div>
+                <div class="campo">
+                    <label for="email">Email:</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Tu email"
+                    />
+                    <span class="error-message" id="error-email"
+                        >La @ es obligatorio</span
+                    >
+                </div>
+                <div class="campo">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea
+                        id="mensaje"
+                        name="mensaje"
+                        placeholder="Escribe tu mensaje aquí..."
+                    ></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+
+                <div class="mensaje-exito" id="mensajeExito">
+                    Enviado correctamente
+                </div>
+            </form>
+        </div>
+        <script>
+            const form = document.querySelector('#formContacto');
+            const nombre = document.querySelector('#nombre');
+            const email = document.querySelector('#email');
+            const errorNombre = document.querySelector('#error-nombre');
+            const errorEmail = document.querySelector('#error-email');
+            const mensajeExito = document.querySelector('#mensajeExito');
+            let toastTimeoutId;
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const nombreValor = nombre.value.trim();
+                const emailValor = email.value.trim();
+
+                let hayError = false;
+
+                if (nombreValor === '') {
+                    nombre.classList.add('error');
+                    errorNombre.classList.add('visible');
+                    hayError = true;
+                }
+
+                if (!emailValor.includes('@')) {
+                    email.classList.add('error');
+                    errorEmail.classList.add('visible');
+                    hayError = true;
+                }
+
+                if (!hayError) {
+                    clearTimeout(toastTimeoutId);
+                    mensajeExito.classList.remove('visible');
+                    void mensajeExito.offsetWidth;
+                    mensajeExito.classList.add('visible');
+
+                    toastTimeoutId = setTimeout(() => {
+                        form.reset();
+                        mensajeExito.classList.remove('visible');
+                    }, 3000);
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,412 @@
+/*#region Reset y base */
+/* Selector universal: elimina los márgenes y rellenos por defecto de todos los elementos. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Selector html: activa el desplazamiento suave al navegar por anclas. */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selector body: define un fondo más rico y cálido para toda la página. */
+body {
+    background:
+        radial-gradient(circle at top left, rgba(255, 196, 110, 0.16), transparent 28%),
+        linear-gradient(135deg, rgb(28, 5, 8), rgb(50, 8, 12) 60%, rgb(78, 14, 19));
+    color: #fff;
+}
+/*#endregion */
+
+/*#region Hero y portada */
+/* Selector id: define la sección principal de bienvenida con diseño flexible y altura completa. */
+#hero {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    padding: 30px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* Selector h1: da estilo al título principal de la portada. */
+h1 { /* EL RINCON */
+    font-family: "Cinzel", serif;
+    font-size: 140px;
+    margin-bottom: -30px;
+    margin-left: 0;
+    color: #f7eedf;
+    text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.9),
+        2px 2px 4px rgba(54, 28, 10, 0.75),
+        4px 4px 10px rgba(95, 54, 18, 0.45),
+        0 0 18px rgba(210, 145, 70, 0.28),
+        0 0 32px rgba(255, 214, 153, 0.2);
+}
+
+/* Selector de clase: estiliza el texto secundario de la portada. */
+.hero-texto { /* CAFETERÍA */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: "League Script", cursive;
+    font-size: 50px;
+    letter-spacing: 4px;
+    color: #f7eedf;
+    margin-bottom: 150px;
+    text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.95),
+        2px 2px 2px rgba(0, 0, 0, 0.75),
+        3px 3px 8px rgba(90, 48, 18, 0.75),
+        6px 6px 16px rgba(70, 35, 10, 0.5),
+        0 0 16px rgba(255, 205, 140, 0.25),
+        0 0 28px rgba(255, 180, 100, 0.18);
+}
+
+/* Selector combinado: ajusta el video de fondo del hero para cubrir toda la sección. */
+#hero video { /* VIDEO INICIO QUE SE QUEDA FIJO */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Pseudo-elemento: añade una capa oscura para mejorar la legibilidad del hero. */
+#hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.25) 45%, rgba(0, 0, 0, 0.45) 100%);
+    z-index: 0;
+}
+
+#hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Selector de clase: define el botón de llamada a la acción de la portada. */
+.cta-boton { /* BOTON DEBAJO DE CAFETERÍA PARA IR A CARTA */
+    color: #f7eedf;
+    border: 1px solid #f7eedf;
+    padding: 10px 30px;
+    letter-spacing: 3px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+/* Pseudo-clase hover: cambia la apariencia del botón al pasar el cursor. */
+.cta-boton:hover { /* CAMBIA COLOR Y UN POCO SOMBRA */
+    background-color: rgba(247, 238, 223, 0.15);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+/*#endregion */
+
+/*#region Header y navegación */
+/* Selector de etiqueta: estilo del encabezado fijo de la página. */
+header { /* MENU NAVEGACION FIJO PARA QUE NO SE ME MUEVA POR AHÍ Y SE VEA SIEMPRE */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 30px;
+    z-index: 50; /* valor alto a lo loco para que se me esconda */
+    background: rgba(71, 3, 3, 0.8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Selector de atributo: añade margen superior al desplazarse a secciones con id. */
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+/* Selector anidado: estiliza los enlaces dentro del header. */
+header a { /* LETRAS MENU NAVEGACION */
+    position: relative;
+    color: #f7eedf;
+    font-family: "Cormorant Garamond", serif;
+    letter-spacing: 3px; 
+    font-weight: 500;
+    font-size: 16px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+    transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /*para el hover al cambio de color y el tiempo*/
+    
+}
+
+/* Pseudo-clase hover: cambia el color de los enlaces al pasar el cursor. */
+header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
+    color: #f2d68f;
+        
+}
+
+/* Selector descendente: ajusta la imagen del logo dentro del contenedor .logo. */
+.logo img { /* LOGO SUPERIOR */
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /*/cambia a blanco invirtiendo el color*/
+}
+/*#endregion */
+
+/*#region Fondos y secciones */
+/* Selector de clase: crea el fondo visual de una sección con imagen de portada y un efecto más elegante. */
+.seccion-fondo { /* IMG FONDO */
+    position: relative;
+    background-color: rgba(29, 6, 9, 0.95);
+    background-image:
+        linear-gradient(135deg, rgba(12, 2, 4, 0.95), rgba(64, 17, 20, 0.75)), /*aquí va como un velo transparente oscuro*/
+        url(../img/fondotransp.jpg); 
+    background-size: cover; 
+    background-position: center;
+}
+
+/* Pseudo-elemento ::before: añade un efecto de superposición oscura sobre la imagen de fondo. Esto ha sido con ayuda */ 
+.seccion-fondo::before { /* EFECTO TRANSPARENCIA */ 
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.35));
+    z-index: 0;
+    pointer-events: none;
+}
+/*#endregion */
+
+/*#region Historia */
+/* Selector de clase: organiza el bloque de historia en una disposición flexible con separación. */
+.historia-contenedor { /* PARA HACER LAS DOS COLUMNAS CON SEPARACION Y ESPACIOS */
+    display: flex;
+    gap: 30px;
+    padding: 80px 50px;
+    justify-content: center;
+}
+
+/* Selector de clase: da estilo a cada tarjeta de contenido histórico. */
+.tarjeta-historia { /* TARJETAS HISTORIA, POSICION ARRIBA */
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    max-width: 550px;
+    border-radius: 30px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55),
+                0 8px 20px rgba(255, 214, 153, 0.16);
+    border: 1px solid rgba(247, 238, 223, 0.12);
+}
+
+/* Selector descendente: controla la imagen dentro de cada tarjeta. */
+.tarjeta-historia img { /* IMG HISTORIA OCUPANDO TODO EL ESPACIO Y QUE NO DISTORSIONE */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+/* Selector de clase: mejora el bloque de texto con un diseño más elegante y cómodo de leer. */
+.tarjeta-texto {
+    padding: 24px 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(247, 238, 223, 0.16);
+    border-radius: 20px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Selector descendente: define el estilo del título dentro del texto de la tarjeta. */
+.tarjeta-texto h2 { /*el titulo NUESTRA CARTA */
+    text-align: center;
+    font-family: "Cinzel", serif;
+    color: #f7eedf;
+    font-size: 30px;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase; 
+}
+
+/* Selector descendente: define el estilo del párrafo dentro del texto de la tarjeta. */
+.tarjeta-texto p {
+    font-family: "Montserrat", sans-serif;
+    color: #f7eedf;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 14px;
+}
+
+/*#endregion */
+
+/*#region Menú */
+/* Selector de clase: organiza las imágenes de la sección menú en una disposición visual clara. */
+.menu-imagenes {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+/* Selector id: da estilo al título de la sección menú para que quede elegante y con personalidad. */
+#cartatitulo { /*LO QUE NOS DEFINE, CENTRADO Y DANDOLE ESPACIO */
+    text-align: center;
+    font-family: "Cinzel", serif;
+    font-size: 38px;
+    color: #f7eedf;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding-top: 50px;
+    text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.85),
+        2px 2px 4px rgba(54, 28, 10, 0.55),
+        0 0 16px rgba(255, 205, 140, 0.18);
+}
+
+#carta {
+    text-align: center; 
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 1.8; 
+    color: #f7eedf;
+    max-width: 100%;
+    font-weight: 400;
+    margin: 16px auto 30px;
+    
+    
+}
+
+.tarjeta-menu { /* QUE SE VEAN LAS 3 IGUALES */
+    flex: 1;
+}
+
+.menu-imagenes img { /* MANTENER LA IMAGEN COMPLETA Y SIN DISTORSIONAR */
+    width: 100%;
+    max-height: 700px;
+    height: auto;
+    object-fit: contain; /* escala la imagen para que se ajuste al contenedor sin distorsionarse */
+    border-radius: 30px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55),
+                0 8px 20px rgba(255, 214, 153, 0.16);
+    border: 1px solid rgba(247, 238, 223, 0.12);
+}
+
+/* Selector combinado: define el enlace dentro de las tarjetas de menú */
+.tarjeta-menu a { /* ENLACE A LOS PDFS CON HOVER ELEGANTE */
+    display: block;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-radius: 30px;
+}
+
+
+
+.tarjeta-menu a:hover img { /* BRILLO SUTIL EN LA IMAGEN */
+    filter: brightness(1.20);
+}
+/*#endregion */
+
+/*#region Galería */
+/* Selector id: da estilo al título de la sección galería */
+#galeriatitulo { /* TITULO GALERIA - MISMO ESTILO QUE CARTA */
+    text-align: center;
+    font-family: "Cinzel", serif;
+    font-size: 38px;
+    color: #f7eedf;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding-top: 50px;
+    text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.85),
+        2px 2px 4px rgba(54, 28, 10, 0.55),
+        0 0 16px rgba(255, 205, 140, 0.18);
+}
+
+/* Selector id: da estilo a la descripción de la sección galería */
+#galeriadescripcion {
+    text-align: center; 
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 1.8; 
+    color: #f7eedf;
+    max-width: 100%;
+    font-weight: 400;
+    margin: 16px auto 30px;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    padding: 20px 80px 60px;
+    margin: 0 30px;
+}
+
+.galeria a {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid rgba(247, 238, 223, 0.12);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55),
+                0 8px 20px rgba(255, 214, 153, 0.16);
+    padding: 10px;
+    background-clip: padding-box;
+}
+
+.galeria img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+
+.galeria a:hover img {
+    filter: brightness(1.05);
+}
+
+/*#endregion */
+
+/*#region Botones y enlaces */
+/* Selector de clase: estilo del botón flotante para volver arriba. */
+.botonarriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #887e26;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 500;
+}
+
+/* Selector de etiqueta: quita el subrayado y define el color de los enlaces principales. */
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Selector de etiqueta: define la lista horizontal del menú de navegación. */
+ul {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    align-items: center;
+}
+/*#endregion */
+
