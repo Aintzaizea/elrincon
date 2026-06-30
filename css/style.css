@@ -371,14 +371,87 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
     height: 400px;
     object-fit: cover;
     border-radius: 30px;
-    
 }
 
 
 .galeria a:hover img {
     filter: brightness(1.05);
+}
+/*#endregion */
+
+/*#region Quiénes */
+#quienestitulo {
+    text-align: center;
+    font-family: "Cinzel", serif;
+    font-size: 38px;
+    color: #f7eedf;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding-top: 50px;
+    text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.85),
+        2px 2px 4px rgba(54, 28, 10, 0.55),
+        0 0 16px rgba(255, 205, 140, 0.18);
+}
+
+#quienesdescripcion {
+    text-align: center; 
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 1.8; 
+    color: #f7eedf;
+    max-width: 100%;
+    font-weight: 400;
+    margin: 16px auto 30px;
+}
+
+.quienes-contenido {
+    padding: 0 70px 60px;
+}
+
+.quienes-fotos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    margin: 0 30px;
+    justify-items: center;
+} 
+
+.quienes-fotos img {
+    display: block; 
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(247, 238, 223, 0.12);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55),
+                0 8px 20px rgba(255, 214, 153, 0.16);
+    padding: 10px;
+   
+}
+
+#equipo {
+    max-width: 980px;
+    margin: 35px auto 0; /*TEXTO DE EQUIPO CENTRADO*/
+    padding: 28px 30px; /*/ESPACIO*/
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
     
 }
+
+#equipo p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 1.9;
+    color: #f7eedf;
+    font-weight: 400;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+
 
 /*#endregion */
 
