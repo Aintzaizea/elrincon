@@ -380,6 +380,7 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
 /*#endregion */
 
 /*#region Quiénes */
+
 #quienestitulo {
     text-align: center;
     font-family: "Cinzel", serif;
@@ -452,8 +453,114 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
 }
 
 
+/*#endregion Quiénes */
 
-/*#endregion */
+/*#region Contacto */
+
+#contactotitulo {
+    text-align: center;
+    font-family: "Cinzel", serif;
+    font-size: 38px;
+    color: #f7eedf;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding-top: 50px;
+    text-shadow:
+        1px 1px 0 rgba(0, 0, 0, 0.85),
+        2px 2px 4px rgba(54, 28, 10, 0.55),
+        0 0 16px rgba(255, 205, 140, 0.18);
+}
+
+#contactadescripcion {
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #f7eedf;
+    max-width: 100%;
+    font-weight: 400;
+    margin: 16px auto 30px;
+}
+
+#formulario,
+#formulario input,
+#formulario textarea,
+#formulario button {
+    font-family: "Montserrat", sans-serif;
+}
+
+#formulario {
+    max-width: 720px;
+    margin: 0 auto 70px;
+    padding: 40px;
+    background: rgba(75, 71, 70, 0.397);
+    border: 1px solid rgba(247, 238, 223, 0.16);
+    border-radius: 28px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+}
+
+#formulario form {
+    display: grid;
+    gap: 20px;
+}
+
+#formulario label {
+    color: #f7eedf;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+#formulario input,
+#formulario textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(90, 57, 0, 0.18);
+    background: rgba(255, 250, 244, 0.92);
+    color: #2b1113;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+#formulario input::placeholder,
+#formulario textarea::placeholder {
+    color: rgba(99, 84, 2, 0.55);
+}
+
+#formulario input:focus,
+#formulario textarea:focus {
+    border-color: #685903;
+    box-shadow: 0 0 0 3px rgba(242, 214, 143, 0.24);
+    transform: translateY(-1px);
+}
+
+#formulario textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+#formulario button {
+    justify-self: center;
+    padding: 12px 26px;
+    border: 1px solid rgba(247, 238, 223, 0.22);
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f2d68f, #c89d4d);
+    color: #2b1113;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    
+}
+
+
+
+/*#endregion Contacto */
 
 /*#region Botones y enlaces */
 /* Selector de clase: estilo del botón flotante para volver arriba. */
