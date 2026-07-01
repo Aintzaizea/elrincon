@@ -18,7 +18,7 @@ body {
         linear-gradient(135deg, rgb(28, 5, 8), rgb(50, 8, 12) 60%, rgb(78, 14, 19));
     color: #fff;
 }
-/*#endregion */
+/*#endregion Reset y base */
 
 /*#region Hero y portada */
 /* Selector id: define la sección principal de bienvenida con diseño flexible y altura completa. */
@@ -112,31 +112,30 @@ h1 { /* EL RINCON */
     background-color: rgba(247, 238, 223, 0.15);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
 }
-/*#endregion */
+/*#endregion Hero y portada */
 
 /*#region Header y navegación */
 /* Selector de etiqueta: estilo del encabezado fijo de la página. */
-header { /* MENU NAVEGACION FIJO PARA QUE NO SE ME MUEVA POR AHÍ Y SE VEA SIEMPRE */
+.header { /* MENU NAVEGACION FIJO PARA QUE NO SE ME MUEVA POR AHÍ Y SE VEA SIEMPRE */
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 10px 30px;
-    z-index: 50; /* valor alto a lo loco para que se me esconda */
+    z-index: 500; /* valor alto a lo loco para que se me esconda */
     background: rgba(71, 3, 3, 0.8);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Selector de atributo: añade margen superior al desplazarse a secciones con id. */
-section[id] {
-    scroll-margin-top: 100px;
-}
+
 
 /* Selector anidado: estiliza los enlaces dentro del header. */
-header a { /* LETRAS MENU NAVEGACION */
+.header a { /* LETRAS MENU NAVEGACION */
     position: relative;
     color: #f7eedf;
     font-family: "Cormorant Garamond", serif;
@@ -149,7 +148,7 @@ header a { /* LETRAS MENU NAVEGACION */
 }
 
 /* Pseudo-clase hover: cambia el color de los enlaces al pasar el cursor. */
-header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
+.header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
     color: #f2d68f;
         
 }
@@ -161,7 +160,7 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
     object-fit: contain;
     filter: brightness(0) invert(1); /*/cambia a blanco invirtiendo el color*/
 }
-/*#endregion */
+/*#endregion Header y navegación */
 
 /*#region Fondos y secciones */
 /* Selector de clase: crea el fondo visual de una sección con imagen de portada y un efecto más elegante. */
@@ -187,7 +186,7 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
     z-index: 0;
     pointer-events: none;
 }
-/*#endregion */
+/*#endregion Fondos y secciones */
 
 /*#region Historia */
 /* Selector de clase: organiza el bloque de historia en una disposición flexible con separación. */
@@ -249,7 +248,7 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
     margin-bottom: 14px;
 }
 
-/*#endregion */
+/*#endregion Historia */
 
 /*#region Menú */
 /* Selector de clase: organiza las imágenes de la sección menú en una disposición visual clara. */
@@ -260,8 +259,11 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
     padding: 20px 0;
 }
 
-/* Selector id: da estilo al título de la sección menú para que quede elegante y con personalidad. */
-#cartatitulo { /*LO QUE NOS DEFINE, CENTRADO Y DANDOLE ESPACIO */
+/* Títulos principales de sección. */
+#cartatitulo,
+#galeriatitulo,
+#quienestitulo,
+#contactotitulo {
     text-align: center;
     font-family: "Cinzel", serif;
     font-size: 38px;
@@ -275,17 +277,26 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
         0 0 16px rgba(255, 205, 140, 0.18);
 }
 
-#carta {
-    text-align: center; 
+/* Textos introductorios de sección. */
+#carta,
+#galeriadescripcion,
+#quienesdescripcion,
+#horario,
+#direccion {
+    text-align: center;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
-    line-height: 1.8; 
+    line-height: 1.8;
     color: #f7eedf;
     max-width: 100%;
     font-weight: 400;
-    margin: 16px auto 30px;
-    
-    
+    margin: 16px auto 8px;
+}
+
+#carta,
+#galeriadescripcion,
+#quienesdescripcion {
+    margin-bottom: 30px;
 }
 
 .tarjeta-menu { /* QUE SE VEAN LAS 3 IGUALES */
@@ -315,36 +326,9 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
 .tarjeta-menu a:hover img { /* BRILLO SUTIL EN LA IMAGEN */
     filter: brightness(1.20);
 }
-/*#endregion */
+/*#endregion Menú */
 
 /*#region Galería */
-/* Selector id: da estilo al título de la sección galería */
-#galeriatitulo { /* TITULO GALERIA - MISMO ESTILO QUE CARTA */
-    text-align: center;
-    font-family: "Cinzel", serif;
-    font-size: 38px;
-    color: #f7eedf;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding-top: 50px;
-    text-shadow:
-        1px 1px 0 rgba(0, 0, 0, 0.85),
-        2px 2px 4px rgba(54, 28, 10, 0.55),
-        0 0 16px rgba(255, 205, 140, 0.18);
-}
-
-/* Selector id: da estilo a la descripción de la sección galería */
-#galeriadescripcion {
-    text-align: center; 
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    line-height: 1.8; 
-    color: #f7eedf;
-    max-width: 100%;
-    font-weight: 400;
-    margin: 16px auto 30px;
-}
-
 .galeria {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -377,34 +361,9 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
 .galeria a:hover img {
     filter: brightness(1.05);
 }
-/*#endregion */
+/*#endregion Galería */
 
 /*#region Quiénes */
-
-#quienestitulo {
-    text-align: center;
-    font-family: "Cinzel", serif;
-    font-size: 38px;
-    color: #f7eedf;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding-top: 50px;
-    text-shadow:
-        1px 1px 0 rgba(0, 0, 0, 0.85),
-        2px 2px 4px rgba(54, 28, 10, 0.55),
-        0 0 16px rgba(255, 205, 140, 0.18);
-}
-
-#quienesdescripcion {
-    text-align: center; 
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    line-height: 1.8; 
-    color: #f7eedf;
-    max-width: 100%;
-    font-weight: 400;
-    margin: 16px auto 30px;
-}
 
 .quienes-contenido {
     padding: 0 70px 60px;
@@ -457,6 +416,8 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
 
 /*#region Contacto */
 
+
+
 #contactotitulo {
     text-align: center;
     font-family: "Cinzel", serif;
@@ -471,7 +432,8 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
         0 0 16px rgba(255, 205, 140, 0.18);
 }
 
-#contactadescripcion {
+#horario,
+#direccion {
     text-align: center;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
@@ -479,25 +441,23 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
     color: #f7eedf;
     max-width: 100%;
     font-weight: 400;
-    margin: 16px auto 30px;
+    margin: 16px auto 8px;
 }
 
-#formulario,
-#formulario input,
-#formulario textarea,
-#formulario button {
+#formulario, #formulario input, #formulario textarea, #formulario button {
     font-family: "Montserrat", sans-serif;
 }
 
 #formulario {
     max-width: 720px;
-    margin: 0 auto 70px;
+    margin: 0 auto 30px;
     padding: 40px;
-    background: rgba(75, 71, 70, 0.397);
-    border: 1px solid rgba(247, 238, 223, 0.16);
+    background: rgb(0, 0, 0);
     border-radius: 28px;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(6px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5),
+                0 10px 24px rgba(242, 214, 143, 0.08);
+                
+       
 }
 
 #formulario form {
@@ -513,29 +473,23 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
     font-weight: 600;
 }
 
-#formulario input,
-#formulario textarea {
+#formulario input, #formulario textarea {
     width: 100%;
+    display: block;
+    box-sizing: border-box;
     padding: 14px 16px;
-    border-radius: 10px;
     border: 1px solid rgba(90, 57, 0, 0.18);
     background: rgba(255, 250, 244, 0.92);
     color: #2b1113;
     font-size: 14px;
     outline: none;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
-#formulario input::placeholder,
-#formulario textarea::placeholder {
-    color: rgba(99, 84, 2, 0.55);
-}
 
 #formulario input:focus,
 #formulario textarea:focus {
-    border-color: #685903;
-    box-shadow: 0 0 0 3px rgba(242, 214, 143, 0.24);
-    transform: translateY(-1px);
+    border: 2px solid #887e26;
+    background-color: #f1edc3;
 }
 
 #formulario textarea {
@@ -544,23 +498,26 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
 }
 
 #formulario button {
-    justify-self: center;
+    justify-self: center; /* hacer el tamaño botón a botón */
     padding: 12px 26px;
     border: 1px solid rgba(247, 238, 223, 0.22);
-    border-radius: 999px;
-    background: linear-gradient(135deg, #f2d68f, #c89d4d);
-    color: #2b1113;
+    border-radius: 60px;
+    color: #4e0208;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
+    transition: background-color 0.3s ease
+}
+
+#formulario button:hover {
+    background-color: rgb(233, 233, 151);
     
 }
 
-
-
 /*#endregion Contacto */
+
 
 /*#region Botones y enlaces */
 /* Selector de clase: estilo del botón flotante para volver arriba. */
@@ -574,7 +531,7 @@ header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
     border-radius: 100%;
     text-decoration: none;
     cursor: pointer;
-    z-index: 500;
+    z-index: 5000;
 }
 
 /* Selector de etiqueta: quita el subrayado y define el color de los enlaces principales. */
@@ -590,5 +547,44 @@ ul {
     gap: 50px;
     align-items: center;
 }
-/*#endregion */
+/*#endregion Botones y enlaces */
 
+/*#region Footer */
+.pie {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 40px;
+    background: rgba(0, 0, 0, 0.75);
+    border-top: 1px solid rgba(247, 238, 223, 0.1);
+}
+
+.copyright {
+    font-size: 13px;
+    color: rgba(247, 238, 223, 0.55);
+    letter-spacing: 0.5px;
+}
+
+.redes {
+    display: flex;
+    gap: 18px;
+    padding-right: 60px;
+    
+}
+
+.redes a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: rgba(247, 238, 223, 0.55);
+    transition: color 0.25s ease;
+    width: 28px;
+    height: 28px;
+}
+
+.redes a:hover {
+    color: #f2d68f;
+}
+/*#endregion Footer */
