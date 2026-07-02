@@ -23,22 +23,19 @@ body {
 /*#region Hero y portada */
 /* Selector id: define la sección principal de bienvenida con diseño flexible y altura completa. */
 #hero {
-    display: flex;
-    justify-content: start;
+    display: flex; 
+    justify-content: start; /*con estas 3 hago que quede centrado y a la izquierda */
     align-items: center;
-    position: relative;
-    min-height: 100vh;
-    padding: 30px;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.25);
+    min-height: 100vh; /*altura mínima */
+    padding: 40px; /*con esto doy espacio en general*/
+    overflow: hidden; /*para que no se desborde*/
+    background-color: rgba(0, 0, 0, 0.192); /*con transparencia para darle calidez al fondo */
 }
 
 /* Selector h1: da estilo al título principal de la portada. */
 h1 { /* EL RINCON */
     font-family: "Cinzel", serif;
     font-size: 140px;
-    margin-bottom: -30px;
-    margin-left: 0;
     color: #f7eedf;
     text-shadow:
         1px 1px 0 rgba(0, 0, 0, 0.9),
@@ -48,27 +45,18 @@ h1 { /* EL RINCON */
         0 0 32px rgba(255, 214, 153, 0.2);
 }
 
-/* Selector de clase: estiliza el texto secundario de la portada. */
 .hero-texto { /* CAFETERÍA */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /*para que quede abajo y centrado */
     align-items: center;
     text-align: center;
-    font-family: "League Script", cursive;
-    font-size: 50px;
+    font-family: "League Script";
+    font-size: 70px;
     letter-spacing: 4px;
     color: #f7eedf;
-    margin-bottom: 150px;
-    text-shadow:
-        1px 1px 0 rgba(0, 0, 0, 0.95),
-        2px 2px 2px rgba(0, 0, 0, 0.75),
-        3px 3px 8px rgba(90, 48, 18, 0.75),
-        6px 6px 16px rgba(70, 35, 10, 0.5),
-        0 0 16px rgba(255, 205, 140, 0.25),
-        0 0 28px rgba(255, 180, 100, 0.18);
 }
 
-/* Selector combinado: ajusta el video de fondo del hero para cubrir toda la sección. */
+
 #hero video { /* VIDEO INICIO QUE SE QUEDA FIJO */
     position: absolute;
     top: 0;
@@ -79,62 +67,44 @@ h1 { /* EL RINCON */
     z-index: -1;
 }
 
-/* Pseudo-elemento: añade una capa oscura para mejorar la legibilidad del hero. */
-#hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.25) 45%, rgba(0, 0, 0, 0.45) 100%);
-    z-index: 0;
-}
 
-#hero > * {
-    position: relative;
-    z-index: 1;
-}
-
-/* Selector de clase: define el botón de llamada a la acción de la portada. */
 .cta-boton { /* BOTON DEBAJO DE CAFETERÍA PARA IR A CARTA */
     color: #f7eedf;
     border: 1px solid #f7eedf;
     padding: 10px 30px;
     letter-spacing: 3px;
     font-family: "Cormorant Garamond", serif;
-    font-size: 14px;
+    font-size: 18px;
     text-transform: uppercase;
-    margin-top: 20px;
+    margin-top: 20px; /*le doy espacio para que no  quede pegado a cafetería*/
     border-radius: 20px;
     transition: all 0.4s ease;
 }
 
-/* Pseudo-clase hover: cambia la apariencia del botón al pasar el cursor. */
+
 .cta-boton:hover { /* CAMBIA COLOR Y UN POCO SOMBRA */
-    background-color: rgba(247, 238, 223, 0.15);
+    background-color: rgba(248, 80, 68, 0.212);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
 }
 /*#endregion Hero y portada */
 
 /*#region Header y navegación */
-/* Selector de etiqueta: estilo del encabezado fijo de la página. */
+
 .header { /* MENU NAVEGACION FIJO PARA QUE NO SE ME MUEVA POR AHÍ Y SE VEA SIEMPRE */
     position: fixed;
-    top: 0;
-    left: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; 
     width: 100%;
     padding: 10px 30px;
     z-index: 500; /* valor alto a lo loco para que se me esconda */
     background: rgba(71, 3, 3, 0.8);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(7px); /*efecto cristal */
+    
 }
 
-/* Selector de atributo: añade margen superior al desplazarse a secciones con id. */
 
 
-/* Selector anidado: estiliza los enlaces dentro del header. */
 .header a { /* LETRAS MENU NAVEGACION */
     position: relative;
     color: #f7eedf;
@@ -142,28 +112,27 @@ h1 { /* EL RINCON */
     letter-spacing: 3px; 
     font-weight: 500;
     font-size: 16px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
     transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /*para el hover al cambio de color y el tiempo*/
     
 }
 
-/* Pseudo-clase hover: cambia el color de los enlaces al pasar el cursor. */
+
 .header a:hover { /* CAMBIAR COLOR AL PASAR RATON */
-    color: #f2d68f;
+    color: #e6c573;
         
 }
 
-/* Selector descendente: ajusta la imagen del logo dentro del contenedor .logo. */
+
 .logo img { /* LOGO SUPERIOR */
     width: 120px;
     height: auto;
-    object-fit: contain;
+    object-fit: contain; /* ajusta el logo proporcionalmente */
     filter: brightness(0) invert(1); /*/cambia a blanco invirtiendo el color*/
 }
 /*#endregion Header y navegación */
 
 /*#region Fondos y secciones */
-/* Selector de clase: crea el fondo visual de una sección con imagen de portada y un efecto más elegante. */
+
 .seccion-fondo { /* IMG FONDO */
     position: relative;
     background-color: rgba(29, 6, 9, 0.95);
@@ -189,15 +158,15 @@ h1 { /* EL RINCON */
 /*#endregion Fondos y secciones */
 
 /*#region Historia */
-/* Selector de clase: organiza el bloque de historia en una disposición flexible con separación. */
+
 .historia-contenedor { /* PARA HACER LAS DOS COLUMNAS CON SEPARACION Y ESPACIOS */
     display: flex;
-    gap: 30px;
+    gap: 80px;
     padding: 80px 50px;
     justify-content: center;
 }
 
-/* Selector de clase: da estilo a cada tarjeta de contenido histórico. */
+
 .tarjeta-historia { /* TARJETAS HISTORIA, POSICION ARRIBA */
     position: relative;
     z-index: 1;
@@ -210,7 +179,7 @@ h1 { /* EL RINCON */
     border: 1px solid rgba(247, 238, 223, 0.12);
 }
 
-/* Selector descendente: controla la imagen dentro de cada tarjeta. */
+
 .tarjeta-historia img { /* IMG HISTORIA OCUPANDO TODO EL ESPACIO Y QUE NO DISTORSIONE */
     width: 100%;
     height: 100%;
@@ -219,7 +188,7 @@ h1 { /* EL RINCON */
 }
 
 /* Selector de clase: mejora el bloque de texto con un diseño más elegante y cómodo de leer. */
-.tarjeta-texto {
+.tarjeta-texto { /*esto ha sido con ayuda*/
     padding: 24px 20px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
     border: 1px solid rgba(247, 238, 223, 0.16);
@@ -227,18 +196,18 @@ h1 { /* EL RINCON */
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-/* Selector descendente: define el estilo del título dentro del texto de la tarjeta. */
+
 .tarjeta-texto h2 { /*el titulo NUESTRA CARTA */
-    text-align: center;
+    text-align: center; /*centrado dentro de la otra tarjeta */
     font-family: "Cinzel", serif;
     color: #f7eedf;
     font-size: 30px;
     margin-bottom: 16px;
     letter-spacing: 1px;
-    text-transform: uppercase; 
+    text-transform: uppercase;  
 }
 
-/* Selector descendente: define el estilo del párrafo dentro del texto de la tarjeta. */
+
 .tarjeta-texto p {
     font-family: "Montserrat", sans-serif;
     color: #f7eedf;
@@ -259,7 +228,7 @@ h1 { /* EL RINCON */
     padding: 20px 0;
 }
 
-/* Títulos principales de sección. */
+/* TODOS LOS TITULOS DE SECCIONES COINCIDEN*/
 #cartatitulo,
 #galeriatitulo,
 #quienestitulo,
@@ -277,7 +246,7 @@ h1 { /* EL RINCON */
         0 0 16px rgba(255, 205, 140, 0.18);
 }
 
-/* Textos introductorios de sección. */
+/* TODOS LOS PARRAFOS DE DESCRIBIR COSILLAS COINCIDEN */
 #carta,
 #galeriadescripcion,
 #quienesdescripcion,
@@ -307,14 +276,14 @@ h1 { /* EL RINCON */
     width: 100%;
     max-height: 700px;
     height: auto;
-    object-fit: contain; /* escala la imagen para que se ajuste al contenedor sin distorsionarse */
+    object-fit: contain; 
     border-radius: 30px;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55),
                 0 8px 20px rgba(255, 214, 153, 0.16);
     border: 1px solid rgba(247, 238, 223, 0.12);
 }
 
-/* Selector combinado: define el enlace dentro de las tarjetas de menú */
+
 .tarjeta-menu a { /* ENLACE A LOS PDFS CON HOVER ELEGANTE */
     display: block;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -324,20 +293,20 @@ h1 { /* EL RINCON */
 
 
 .tarjeta-menu a:hover img { /* BRILLO SUTIL EN LA IMAGEN */
-    filter: brightness(1.20);
+    filter: brightness(1.30);
 }
 /*#endregion Menú */
 
 /*#region Galería */
 .galeria {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 COLUMNAS QUE OCUPEN EL ANCHO*/
     gap: 30px;
     padding: 20px 80px 60px;
     margin: 0 30px;
 }
 
-.galeria a {
+.galeria a { 
     display: block;
     background-color: rgba(0, 0, 0, 0.85);
     border-radius: 30px;
@@ -346,20 +315,19 @@ h1 { /* EL RINCON */
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55),
                 0 8px 20px rgba(255, 214, 153, 0.16);
     padding: 10px;
-    background-clip: padding-box;
 }
 
 .galeria img {
-    display: block;
+    display: block; /*ocupa todo el ancho y cuando se acabe empieza otra línea*/
     width: 100%;
     height: 400px;
-    object-fit: cover;
+    object-fit: cover; /*cubre la tarjeta sin distorsionar*/
     border-radius: 30px;
 }
 
 
 .galeria a:hover img {
-    filter: brightness(1.05);
+    filter: brightness(1.05); /*le da brillo al pasar el ratón*/
 }
 /*#endregion Galería */
 
@@ -371,7 +339,7 @@ h1 { /* EL RINCON */
 
 .quienes-fotos {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /*3 columnas*/
     gap: 30px;
     margin: 0 30px;
     justify-items: center;
@@ -380,7 +348,7 @@ h1 { /* EL RINCON */
 .quienes-fotos img {
     display: block; 
     width: 100%;
-    max-width: 400px;
+    max-width: 400px; /*les damos un ancho máximo*/
     height: 300px;
     object-fit: cover;
     border-radius: 30px;
@@ -417,7 +385,6 @@ h1 { /* EL RINCON */
 /*#region Contacto */
 
 
-
 #contactotitulo {
     text-align: center;
     font-family: "Cinzel", serif;
@@ -445,11 +412,11 @@ h1 { /* EL RINCON */
 }
 
 #formulario, #formulario input, #formulario textarea, #formulario button {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif; /*le obligamos a heredar la fuente*/
 }
 
 #formulario {
-    max-width: 720px;
+    max-width: 720px;  /*máxima anchura*/
     margin: 0 auto 30px;
     padding: 40px;
     background: rgb(0, 0, 0);
@@ -460,7 +427,7 @@ h1 { /* EL RINCON */
        
 }
 
-#formulario form {
+#formulario form { 
     display: grid;
     gap: 20px;
 }
@@ -476,23 +443,22 @@ h1 { /* EL RINCON */
 #formulario input, #formulario textarea {
     width: 100%;
     display: block;
-    box-sizing: border-box;
     padding: 14px 16px;
     border: 1px solid rgba(90, 57, 0, 0.18);
     background: rgba(255, 250, 244, 0.92);
     color: #2b1113;
     font-size: 14px;
-    outline: none;
+    outline: none; /*elimina el contorno que viene por defecto*/
 }
 
 
-#formulario input:focus,
+#formulario input:focus, /*le damos nuestro borde y color al taxtarea*/
 #formulario textarea:focus {
     border: 2px solid #887e26;
     background-color: #f1edc3;
 }
 
-#formulario textarea {
+#formulario textarea { /*que no se haga ancho*/
     resize: vertical;
     min-height: 140px;
 }
@@ -522,7 +488,7 @@ h1 { /* EL RINCON */
 /*#region Botones y enlaces */
 /* Selector de clase: estilo del botón flotante para volver arriba. */
 .botonarriba {
-    position: fixed;
+    position: fixed; /*fijo para que no se mueva*/
     bottom: 20px;
     right: 20px;
     background-color: #887e26;
@@ -530,19 +496,19 @@ h1 { /* EL RINCON */
     padding: 10px 15px;
     border-radius: 100%;
     text-decoration: none;
-    cursor: pointer;
-    z-index: 5000;
+    cursor: pointer; /*cambia el cursor*/
+    z-index: 5000; /*alto alto para que no se esconda */
 }
 
-/* Selector de etiqueta: quita el subrayado y define el color de los enlaces principales. */
+
 a {
     color: #fff;
-    text-decoration: none;
+    text-decoration: none; /*quita el subrayado y define el color de los enlaces principales. */
 }
 
-/* Selector de etiqueta: define la lista horizontal del menú de navegación. */
+
 ul {
-    display: flex;
+    display: flex; /*define la lista horizontal del menú de navegación. */
     list-style: none;
     gap: 50px;
     align-items: center;
@@ -550,7 +516,7 @@ ul {
 /*#endregion Botones y enlaces */
 
 /*#region Footer */
-.pie {
+.pie { /*nos reparte los elementos*/
     font-family: "Montserrat", sans-serif;
     display: flex;
     justify-content: space-between;
@@ -560,7 +526,7 @@ ul {
     border-top: 1px solid rgba(247, 238, 223, 0.1);
 }
 
-.copyright {
+.copyright { 
     font-size: 13px;
     color: rgba(247, 238, 223, 0.55);
     letter-spacing: 0.5px;
@@ -568,20 +534,19 @@ ul {
 
 .redes {
     display: flex;
-    gap: 18px;
+    gap: 20px;
     padding-right: 60px;
     
 }
 
 .redes a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
+    display: inline-flex; /*ocupa el ancho necesario*/
+    font-size: 30px;
     color: rgba(247, 238, 223, 0.55);
     transition: color 0.25s ease;
     width: 28px;
     height: 28px;
+    
 }
 
 .redes a:hover {
