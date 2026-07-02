@@ -172,7 +172,7 @@ h1 {
 .galeria img {
     display: block;
     width: 100%;
-    height: 400px;
+    height: 280px;
     object-fit: cover;
     border-radius: 30px;
 }
@@ -202,6 +202,7 @@ h1 {
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55),
                 0 8px 20px rgba(255, 214, 153, 0.16);
     padding: 10px;
+    filter: brightness(1.2);
 }
 
 /* Pie en móvil */
@@ -426,7 +427,7 @@ h1 {
     color: #f7eedf;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding-top: 50px;
+    padding-top: 75px;
     text-shadow:
         1px 1px 0 rgba(0, 0, 0, 0.85),
         2px 2px 4px rgba(54, 28, 10, 0.55),
@@ -550,8 +551,8 @@ ul {
     /* Galería escritorio */
     .galeria {
         grid-template-columns: repeat(3, minmax(0, 1fr)); /* antes fuera */
-        padding: 20px 80px 60px;   /* antes fuera */
-        margin: 0 30px;            /* antes fuera */
+        padding: 20px 40px 40px;   /* antes fuera */
+        margin: 0 20px;            /* antes fuera */
     }
 
     /* Quiénes escritorio */
@@ -588,7 +589,7 @@ ul {
     /* Menú escritorio */
     .menu-imagenes {
         flex-direction: row;       /* antes fuera */
-        padding: 20px 0;           /* antes fuera */
+        padding: 20px 40px;           /* antes fuera */
         gap: 30px;                 /* ya está en base, pero lo reafirmamos */
     }
 
